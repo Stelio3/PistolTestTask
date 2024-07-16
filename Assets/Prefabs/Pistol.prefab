@@ -100,8 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   range: 10
-  fireRate: 2
-  bulletPrefab: {fileID: 0}
   firePoint: {fileID: 6079115843289890390}
 --- !u!1 &7263661064807169638
 GameObject:

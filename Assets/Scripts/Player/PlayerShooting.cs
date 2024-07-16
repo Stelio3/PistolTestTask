@@ -13,16 +13,15 @@ public class PlayerShooting : MonoBehaviour
     }
     private void Shoot()
     {
-        Vector2 targetDirection = TargetFinder.FindNearestTarget(transform.position);
-        if (targetDirection != Vector2.zero)
-            _weapon.Shoot(targetDirection);
+        _weapon.Shoot();
     }
     public void DoDamage(int damage)
     {
         Debug.Log("Damage received");
     }
-    public void SetWeapon(Weapon weapon)
+    public void SetWeapon(GameObject weaponPrefab)
     {
+        Weapon weapon = weaponPrefab.GetComponent<Weapon>();
         _weapon = weapon;
     }
 }

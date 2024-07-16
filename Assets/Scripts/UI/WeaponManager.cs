@@ -13,9 +13,12 @@ public class WeaponManager : Singleton<WeaponManager>
     public WeaponsData ActiveWeapon { get; private set; }
     private GameObject newWeaponPrefab;
 
-    private void Start()
+    private void Awake()
     {
         _playerShooting = PlayerController.Instance.GetPlayerShooting();
+    }
+    private void Start()
+    {
         if (_playerShooting != null)
         {
             GenerateWeaponButtons();
@@ -37,7 +40,7 @@ public class WeaponManager : Singleton<WeaponManager>
         //Set first weapon as default
         _playerShooting.SetWeapon(ChangeWeapon(weaponList.weapons[0]));
     }
-    private Weapon ChangeWeapon(WeaponsData weaponData)
+    private GameObject ChangeWeapon(WeaponsData weaponData)
     {
         //Deactive UI
         if (ActiveWeapon != null)
@@ -50,6 +53,6 @@ public class WeaponManager : Singleton<WeaponManager>
         ActiveWeapon = weaponData;
         weaponData.weaponBtn.ActivateWeapon();
         newWeaponPrefab = Instantiate(weaponData.weaponPrefab, _playerShooting.transform);
-        return weaponData.weaponType;
+        return newWeaponPrefab;
     }
 }

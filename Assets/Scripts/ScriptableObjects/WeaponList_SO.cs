@@ -15,6 +15,5 @@ public class WeaponsData
 {
     public Sprite weaponIcon;
     public GameObject weaponPrefab;
-    public Weapon weaponType;
     [HideInInspector] public WeaponBtn weaponBtn;
 }

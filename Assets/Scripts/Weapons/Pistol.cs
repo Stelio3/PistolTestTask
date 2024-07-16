@@ -6,18 +6,13 @@ using UnityEngine.Pool;
 public class Pistol : Weapon
 {
 
-    public override void Shoot(Vector2 direction)
+    public override void Shoot()
     {
-        Vector3 currentFirePoint = PlayerController.Instance.transform.position + firePoint.position;
-        GameObject bullet = ObjectPooler.Instance.SpawnFromPool("Bullet", currentFirePoint, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().velocity = direction * range;
-        nextFireTime = Time.time + 1f / fireRate;
+        Vector2 direction = TargetFinder.FindNearestTarget(firePoint.position);
+        if (direction == Vector2.zero)
+            return;
 
-        //if (Time.time >= nextFireTime)
-        //{
-        //    GameObject bullet = ObjectPooler.Instance.SpawnFromPool("Bullet", firePoint.position, Quaternion.identity);
-        //    bullet.GetComponent<Rigidbody2D>().velocity = direction * range;
-        //    nextFireTime = Time.time + 1f / fireRate;
-        //}
+        GameObject bullet = ObjectPooler.Instance.SpawnFromPool("Bullet", firePoint.position, Quaternion.identity);
+        bullet.GetComponent<Rigidbody2D>().velocity = direction * range;
     }
 }

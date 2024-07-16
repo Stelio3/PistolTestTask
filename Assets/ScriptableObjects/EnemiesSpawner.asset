@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: EnemiesSpawner
   m_EditorClassIdentifier: 
   enemy:
-  - name: 
-    prefab: {fileID: 7122475936083029851, guid: 49481544e0548904ea6b1deeb239b2f0, type: 3}
-    Chance: 2
+  - prefab: {fileID: 7122475936083029851, guid: 49481544e0548904ea6b1deeb239b2f0, type: 3}
+    Chance: 3
     _weight: 0
-  - name: 
-    prefab: {fileID: 7122475936083029851, guid: 1294332c5b78b6846aa0810fef91b680, type: 3}
-    Chance: 4
+  - prefab: {fileID: 7122475936083029851, guid: 1294332c5b78b6846aa0810fef91b680, type: 3}
+    Chance: 1
     _weight: 0
