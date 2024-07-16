@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : Singleton<EnemySpawner>
 {
     [SerializeField] private EnemiesSpawner_SO _spawner;
     private List<double> _cumulativeWeights = new List<double>();
@@ -73,11 +73,18 @@ public class EnemySpawner : MonoBehaviour
         GameObject enemy = Instantiate(randomEnemy.prefab, _spawnPosition, Quaternion.identity, transform);
         _enemiesSpawned.Add(enemy);
     }
+    public void DestroyEnemy(GameObject enemy)
+    {
+        _enemiesSpawned.Remove(enemy);
+        Destroy(enemy);
+    }
     private void CheckDestroyFarEnemy()
     {
         var toDestroy = new List<GameObject>();
+        List<GameObject> enemiesAux = new List<GameObject>();
 
-        foreach (GameObject enemy in _enemiesSpawned)
+        enemiesAux.AddRange(_enemiesSpawned);
+        foreach (GameObject enemy in enemiesAux)
         {
             var distancia = Vector3.Distance(enemy.transform.position, PlayerController.Instance.transform.position);
             if (distancia > 40)
@@ -87,8 +94,7 @@ public class EnemySpawner : MonoBehaviour
         }
         foreach (GameObject enemy in toDestroy)
         {
-            _enemiesSpawned.Remove(enemy);
-            Destroy(enemy);
+            DestroyEnemy(enemy);
         }
     }
 }

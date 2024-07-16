@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7122475936083029853}
   - component: {fileID: 7122475936083029852}
   - component: {fileID: 7122475936083029854}
+  - component: {fileID: 5444805998690964806}
   m_Layer: 0
   m_Name: EnemyRed
   m_TagString: Target
@@ -97,3 +98,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239f3801b98fbdd438dfcbe035625085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &5444805998690964806
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7122475936083029851}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.49999997

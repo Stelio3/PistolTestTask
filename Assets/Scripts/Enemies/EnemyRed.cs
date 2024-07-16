@@ -8,6 +8,6 @@ public class EnemyRed : MonoBehaviour, ITarget
 
     public void TakeDamage(int amount)
     {
-        
+        EnemySpawner.Instance.DestroyEnemy(gameObject);
     }
 }
