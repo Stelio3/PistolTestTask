@@ -11,6 +11,6 @@ public class Bullet : MonoBehaviour
         ITarget enemy = other.GetComponent<ITarget>();
         enemy?.TakeDamage(10);
 
-        Destroy(gameObject);
+        ObjectPooler.Instance.ReturnToPool("Bullet", gameObject);
     }
 }

@@ -15,10 +15,6 @@ public class PlayerShooting : MonoBehaviour
     {
         _weapon.Shoot();
     }
-    public void DoDamage(int damage)
-    {
-        Debug.Log("Damage received");
-    }
     public void SetWeapon(GameObject weaponPrefab)
     {
         Weapon weapon = weaponPrefab.GetComponent<Weapon>();

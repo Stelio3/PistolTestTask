@@ -51,4 +51,15 @@ public class ObjectPooler : Singleton<ObjectPooler>
 
         return objectToSpawn;
     }
+    public void ReturnToPool(string tag, GameObject objectToReturn)
+    {
+        if (!poolDictionary.ContainsKey(tag))
+        {
+            Debug.LogWarning("Pool with tag " + tag + " doesn't exist.");
+            return;
+        }
+
+        objectToReturn.SetActive(false);
+        poolDictionary[tag].Enqueue(objectToReturn);
+    }
 }
