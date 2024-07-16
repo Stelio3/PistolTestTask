@@ -10,10 +10,10 @@ public class EnemySpawner : Singleton<EnemySpawner>
     private List<SpawnProbability> _enemies = new List<SpawnProbability>();
     private List<GameObject> _enemiesSpawned = new List<GameObject>();
 
-    private float _minDistance = 5;
-    private float _maxDistance = 15;
-    private float _enemiesMaxDisplayed = 20;
-    private float _enemiesSpawnFreq = 2;
+    private float _minDistance = 3;
+    private float _maxDistance = 10;
+    private float _enemiesMaxDisplayed = 25;
+    private float _enemiesSpawnFreq = 1.2f;
     private float lastEnemy;
     private Vector2 _spawnPosition;
 

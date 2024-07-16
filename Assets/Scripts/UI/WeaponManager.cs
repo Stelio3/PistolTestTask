@@ -15,7 +15,7 @@ public class WeaponManager : Singleton<WeaponManager>
 
     private void Awake()
     {
-        _playerShooting = PlayerController.Instance.GetPlayerShooting();
+        _playerShooting = PlayerController.Instance.GetComponent<PlayerShooting>();
     }
     private void Start()
     {

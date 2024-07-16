@@ -168,37 +168,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &284883490
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 284883491}
-  m_Layer: 0
-  m_Name: WeaponHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &284883491
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284883490}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.63, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4069945893149074274}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &694085405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,10 +992,6 @@ PrefabInstance:
       propertyPath: _shootWeapon
       value: 
       objectReference: {fileID: 1676406259}
-    - target: {fileID: 4069945893149074275, guid: d5f195d1e0467ef48b4a653025153a35, type: 3}
-      propertyPath: weaponHolder
-      value: 
-      objectReference: {fileID: 284883491}
     - target: {fileID: 7001160287737062244, guid: d5f195d1e0467ef48b4a653025153a35, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1081,8 +1046,3 @@ PrefabInstance:
       objectReference: {fileID: 2095281056}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5f195d1e0467ef48b4a653025153a35, type: 3}
---- !u!4 &4069945893149074274 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7001160287737062244, guid: d5f195d1e0467ef48b4a653025153a35, type: 3}
-  m_PrefabInstance: {fileID: 4069945893149074273}
-  m_PrefabAsset: {fileID: 0}
