@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277b8dce8a659ce42895daf5e9cf61b2, type: 3}
+  m_Name: EnemiesSpawner
+  m_EditorClassIdentifier: 
+  enemy:
+  - name: 
+    prefab: {fileID: 7122475936083029851, guid: 49481544e0548904ea6b1deeb239b2f0, type: 3}
+    Chance: 2
+    _weight: 0
+  - name: 
+    prefab: {fileID: 7122475936083029851, guid: 1294332c5b78b6846aa0810fef91b680, type: 3}
+    Chance: 4
+    _weight: 0

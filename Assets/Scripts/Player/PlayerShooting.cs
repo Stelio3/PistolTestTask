@@ -14,9 +14,8 @@ public class PlayerShooting : MonoBehaviour
     private void Shoot()
     {
         Vector2 targetDirection = TargetFinder.FindNearestTarget(transform.position);
-        if (targetDirection == Vector2.zero)
-            targetDirection = new Vector2(0, 90);
-        _weapon.Shoot(targetDirection);
+        if (targetDirection != Vector2.zero)
+            _weapon.Shoot(targetDirection);
     }
     public void DoDamage(int damage)
     {

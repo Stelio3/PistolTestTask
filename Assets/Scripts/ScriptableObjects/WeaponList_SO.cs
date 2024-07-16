@@ -8,7 +8,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "CreateNewWeaponList", menuName = "ScriptableObjects/WeaponList", order = 1)]
 public class WeaponList_SO : ScriptableObject
 {
-    public List<WeaponsData> weapons;
+    public WeaponsData[] weapons;
 }
 [Serializable]
 public class WeaponsData
@@ -16,5 +16,5 @@ public class WeaponsData
     public Sprite weaponIcon;
     public GameObject weaponPrefab;
     public Weapon weaponType;
-    public WeaponBtn weaponBtn;
+    [HideInInspector] public WeaponBtn weaponBtn;
 }

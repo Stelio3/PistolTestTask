@@ -5,17 +5,16 @@ using UnityEngine.UI;
 
 public class BackgroundManager : MonoBehaviour
 {
-    public Transform player;
-
     public RawImage _backgroundImage;
-    public float _x = 0.001f;
-    public float _y = 0.001f;
+    public float _x = 0.01f;
+    public float _y = 0.01f;
 
     private Vector3 previousPlayerPosition;
 
     void Update()
     {
-        Vector3 deltaMovement = player.position - previousPlayerPosition;
+        Vector3 playerPosition = PlayerController.Instance.transform.position;
+        Vector3 deltaMovement = playerPosition - previousPlayerPosition;
 
         // Update UV coordinates
         Rect uvRect = _backgroundImage.uvRect;
@@ -23,6 +22,6 @@ public class BackgroundManager : MonoBehaviour
         _backgroundImage.uvRect = uvRect;
 
         // Update previous player position
-        previousPlayerPosition = player.position;
+        previousPlayerPosition = playerPosition;
     }
 }

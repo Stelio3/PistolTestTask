@@ -15,7 +15,8 @@ public class Shotgun : Weapon
         {
             float angle = spreadAngle * (i - pelletCount / 2);
             Vector2 spreadDirection = Quaternion.Euler(0, 0, angle) * direction;
-            GameObject pellet = ObjectPooler.Instance.SpawnFromPool("Bullet", firePoint.position, Quaternion.identity);
+            Vector3 currentFirePoint = PlayerController.Instance.transform.position + firePoint.position;
+            GameObject pellet = ObjectPooler.Instance.SpawnFromPool("Bullet", currentFirePoint, Quaternion.identity);
             pellet.GetComponent<Rigidbody2D>().velocity = spreadDirection * range;
         }
         //if (Time.time >= nextFireTime)

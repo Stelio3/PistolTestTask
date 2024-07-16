@@ -2,19 +2,20 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
-public class WeaponManager : MonoBehaviour
+public class WeaponManager : Singleton<WeaponManager>
 {
     public WeaponList_SO weaponList;
     public GameObject buttonPrefab;
     public Transform buttonParent;
 
-    [SerializeField] private PlayerShooting _playerShooting;
+    private PlayerShooting _playerShooting;
 
-    private WeaponsData _activeWeapon;
+    public WeaponsData ActiveWeapon { get; private set; }
     private GameObject newWeaponPrefab;
 
     private void Start()
     {
+        _playerShooting = PlayerController.Instance.GetPlayerShooting();
         if (_playerShooting != null)
         {
             GenerateWeaponButtons();
@@ -39,14 +40,14 @@ public class WeaponManager : MonoBehaviour
     private Weapon ChangeWeapon(WeaponsData weaponData)
     {
         //Deactive UI
-        if (_activeWeapon != null)
-            _activeWeapon.weaponBtn.DeactivateWeapon();
+        if (ActiveWeapon != null)
+            ActiveWeapon.weaponBtn.DeactivateWeapon();
 
         //Destroy player weapon
         if (newWeaponPrefab != null)
             Destroy(newWeaponPrefab);
 
-        _activeWeapon = weaponData;
+        ActiveWeapon = weaponData;
         weaponData.weaponBtn.ActivateWeapon();
         newWeaponPrefab = Instantiate(weaponData.weaponPrefab, _playerShooting.transform);
         return weaponData.weaponType;
