@@ -9,8 +9,10 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         ITarget enemy = other.GetComponent<ITarget>();
-        enemy?.TakeDamage(10);
-
-        ObjectPooler.Instance.ReturnToPool("Bullet", gameObject);
+        if(enemy != null)
+        {
+            enemy.TakeDamage(10);
+            ObjectPooler.Instance.ReturnToPool("Bullet", gameObject);
+        }
     }
 }
