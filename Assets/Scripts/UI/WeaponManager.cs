@@ -52,7 +52,7 @@ public class WeaponManager : Singleton<WeaponManager>
 
         ActiveWeapon = weaponData;
         weaponData.weaponBtn.ActivateWeapon();
-        newWeaponPrefab = Instantiate(weaponData.weaponPrefab, _playerShooting.transform);
+        newWeaponPrefab = Instantiate(weaponData.weaponPrefab, _playerShooting.weaponHolder.transform);
         return newWeaponPrefab;
     }
 }
