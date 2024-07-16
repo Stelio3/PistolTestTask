@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedEnemy : MonoBehaviour, ITarget
+public class EnemyRed : MonoBehaviour, ITarget
 {
     public bool Ignore => false;
 

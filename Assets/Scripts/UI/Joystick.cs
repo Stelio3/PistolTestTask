@@ -11,6 +11,7 @@ public class Joystick : MonoBehaviour
     private Vector2 origin = Vector2.zero;
     private float areaRadious = 0;
     private Vector2 inputPosition;
+    private Vector2 direction;
 
     void Start()
     {
@@ -36,7 +37,7 @@ public class Joystick : MonoBehaviour
         {
             inputPosition = SetInputPosition();
             Vector2 offset = new Vector2(inputPosition.x, inputPosition.y) - new Vector2(origin.x, origin.y);
-            Vector2 direction = Vector2.ClampMagnitude(offset, areaRadious);
+            direction = Vector2.ClampMagnitude(offset, areaRadious);
             handle.position = new Vector2(origin.x + direction.x, origin.y + direction.y);
         }
     }
@@ -52,6 +53,7 @@ public class Joystick : MonoBehaviour
         moving = false;
         handle.anchoredPosition = Vector2.zero;
         origin = handle.position;
+        direction = Vector2.zero;
     }
     private Vector2 SetInputPosition()
     {
@@ -59,5 +61,13 @@ public class Joystick : MonoBehaviour
             return Input.touches[0].position;
         else
             return Input.mousePosition;
+    }
+    public Vector2 GetInputDirection()
+    {
+        return direction.normalized;
+    }
+    public float GetInputMagnitude()
+    {
+        return direction.magnitude / areaRadious;
     }
 }
