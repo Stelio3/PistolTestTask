@@ -212,3 +212,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconImage: {fileID: 8679359396167326481}
+  _activeColor: {r: 0.56078434, g: 0.94509804, b: 0.45882353, a: 1}
+  _inactiveColor: {r: 1, g: 1, b: 1, a: 1}

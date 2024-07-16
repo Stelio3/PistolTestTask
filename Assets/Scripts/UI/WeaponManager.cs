@@ -4,15 +4,14 @@ using UnityEngine.UI;
 
 public class WeaponManager : MonoBehaviour
 {
-    //[SerializeField] private Button _pistolButton;
-    //[SerializeField] private Button _shotgunButton;
-
     public WeaponList_SO weaponList;
-    [SerializeField] private PlayerShooting _playerShooting;
     public GameObject buttonPrefab;
     public Transform buttonParent;
-    //[SerializeField] private Pistol _pistol;
-    //[SerializeField] private Shotgun _shotggun;
+
+    [SerializeField] private PlayerShooting _playerShooting;
+
+    private WeaponsData _activeWeapon;
+    private GameObject newWeaponPrefab;
 
     private void Start()
     {
@@ -23,22 +22,33 @@ public class WeaponManager : MonoBehaviour
     }
     private void GenerateWeaponButtons()
     {
-        //Set first weapon as default
-        _playerShooting.SetWeapon(weaponList.weapons[0].weaponType);
-
         //Instantiate weapon's buttons
-        foreach (var weapon in weaponList.weapons)
+        foreach (WeaponsData weapon in weaponList.weapons)
         {
             GameObject newButton = Instantiate(buttonPrefab, buttonParent);
 
-            WeaponBtn weaponBtn = newButton.GetComponent<WeaponBtn>();
-            weaponBtn.SetIconImage(weapon.weaponIcon);
+            weapon.weaponBtn = newButton.GetComponent<WeaponBtn>();
 
-            newButton.GetComponent<Button>().onClick.AddListener(() => _playerShooting.SetWeapon(ChangeWeapon(weapon)));
+            weapon.weaponBtn.SetIconImage(weapon.weaponIcon);
+            weapon.weaponBtn.GetComponent<Button>().onClick.AddListener(() => _playerShooting.SetWeapon(ChangeWeapon(weapon)));
         }
+
+        //Set first weapon as default
+        _playerShooting.SetWeapon(ChangeWeapon(weaponList.weapons[0]));
     }
     private Weapon ChangeWeapon(WeaponsData weaponData)
     {
+        //Deactive UI
+        if (_activeWeapon != null)
+            _activeWeapon.weaponBtn.DeactivateWeapon();
+
+        //Destroy player weapon
+        if (newWeaponPrefab != null)
+            Destroy(newWeaponPrefab);
+
+        _activeWeapon = weaponData;
+        weaponData.weaponBtn.ActivateWeapon();
+        newWeaponPrefab = Instantiate(weaponData.weaponPrefab, _playerShooting.transform);
         return weaponData.weaponType;
     }
 }

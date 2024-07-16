@@ -912,9 +912,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponList: {fileID: 11400000, guid: 6738e8933e0fcee4397481850e66b9f9, type: 2}
-  _playerShooting: {fileID: 4069945893149074275}
   buttonPrefab: {fileID: 8679359397079289996, guid: 1cd1d9aa51ec9ef4b8acbd105bca22ec, type: 3}
   buttonParent: {fileID: 1326937373}
+  _playerShooting: {fileID: 4069945893149074275}
+  _activeColor: {r: 0.56078434, g: 0.94509804, b: 0.45882353, a: 1}
+  _inactiveColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1662665215
 Transform:
   m_ObjectHideFlags: 0
